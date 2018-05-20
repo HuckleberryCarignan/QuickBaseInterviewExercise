@@ -6,21 +6,23 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+// Collection of negative Test cases to make IllegalArgumentException
 public class QuickBaseTwoLargestTest_IllegalArgumentException {
 
-
-    // Nested class to serve as input object for
+    // Nested class to serve as input object for DataProvider
     private static class QuickBaseTestObject {
         int[] itemsToAdd;
         int highestValue;
         int secondHighestValue;
 
+        // Constructor
         public QuickBaseTestObject(int[] itemsToAdd, int highestValue, int secondHighestValue) {
             this.itemsToAdd = itemsToAdd;
             this.highestValue = highestValue;
             this.secondHighestValue = secondHighestValue;
         }
 
+        // Getters
         public int[] getItemsToAdd() {
             return itemsToAdd;
         }
@@ -34,17 +36,19 @@ public class QuickBaseTwoLargestTest_IllegalArgumentException {
         }
     }
 
-
+    // DataProvider used so that additional data driven tests can be easily added
     @DataProvider(name="twoLargestValuesTestInputData")
     public Object[][] twoLargestValuesTestInputDataObject() {
             return new Object[][]{
+                    // Test Case: Array of one element
                     {new QuickBaseTestObject(new int[]{5},5, 0)},
-                    {new QuickBaseTestObject(new int[]{},0, -1)}
+                    // Test Case: Empty Array
+                    {new QuickBaseTestObject(new int[]{},0, -1)},
         };
     }
 
-
-    public static List<Integer> createArrayList(int[] itemsToAdd){
+    // Method for converting int[] to List<Integer>
+    private static List<Integer> createArrayList(int[] itemsToAdd){
         List<Integer> listToReturn = new ArrayList<>();
         for(int i: itemsToAdd){
             listToReturn.add(i);
@@ -52,6 +56,7 @@ public class QuickBaseTwoLargestTest_IllegalArgumentException {
         return listToReturn;
     }
 
+    // TestNG - takes in dataProvider for input and expects "IllegalArgumentException" as results
     @Test(dataProvider = "twoLargestValuesTestInputData",expectedExceptions = { IllegalArgumentException.class })
     public void testTwoLargest(QuickBaseTestObject quickBaseTestObject ) {
         List<Integer> testList;
