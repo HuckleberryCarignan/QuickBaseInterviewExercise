@@ -1,5 +1,4 @@
 import org.testng.Assert;
-import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import java.util.ArrayList;
@@ -10,11 +9,11 @@ public class QuickBaseTest {
 
     //@DataProvider(name="twoLargestValuesTestInputData")
 
-    public Object[][] twoLargestValuesTestInputDataObject() {
-            return new Object[][]{
-                [2,2];
-        }
-    }
+//    public Object[][] twoLargestValuesTestInputDataObject() {
+//            return new Object[][]{
+//                [2,2];
+//        }
+//    }
 
     @Test
     public void testTwoLargest() {
