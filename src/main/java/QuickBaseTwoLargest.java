@@ -34,19 +34,23 @@ public class QuickBaseTwoLargest {
 
     // Method that returns the second and
     private List<Integer> findTwoLargest(List listToMined){
+
+        // Need a check to see if there are at least two values in passes ListToMined
         List<Integer> largestAndSecondLargestToBeReturned = new ArrayList<>();
 
-        //Collections.sort(listToMined);
-        Collections.sort(listToMined, Collections.reverseOrder());
+        if (listToMined.size() > 1) {
+            //Collections.sort(listToMined);
+            Collections.sort(listToMined, Collections.reverseOrder());
 
-        largestAndSecondLargestToBeReturned.add((int)listToMined.get(0));
-        largestAndSecondLargestToBeReturned.add((int)listToMined.get(1));
-
-
-
-        return largestAndSecondLargestToBeReturned;
+            largestAndSecondLargestToBeReturned.add((int) listToMined.get(0));
+            largestAndSecondLargestToBeReturned.add((int) listToMined.get(1));
 
 
+            return largestAndSecondLargestToBeReturned;
+        }
+        else {
+            return null;
+        }
 
 
     }
